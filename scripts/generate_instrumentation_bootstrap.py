@@ -71,6 +71,15 @@ independent_packages = {
     "opentelemetry-instrumentation-openai-v2": "",
     "opentelemetry-instrumentation-vertexai": ">=2.0b0",
     "opentelemetry-instrumentation-google-genai": "",
+    "opentelemetry-instrumentation-llamaindex": "==0.40.7",
+}
+
+# Manual library mappings for external packages
+manual_library_mappings = {
+    "opentelemetry-instrumentation-llamaindex": [
+        "llama-index >= 0.7.0",
+        "llama-index-core >= 0.7.0",
+    ],
 }
 
 
@@ -91,6 +100,18 @@ def main():
                 ast.Dict(
                     keys=[ast.Str("library"), ast.Str("instrumentation")],
                     values=[ast.Str(target_pkg), ast.Str(pkg["requirement"])],
+                )
+            )
+
+    # Add manual library mappings
+    for instrumentation_pkg, target_libraries in manual_library_mappings.items():
+        version_spec = independent_packages.get(instrumentation_pkg, "")
+        requirement = f"{instrumentation_pkg}{version_spec}"
+        for target_lib in target_libraries:
+            libraries.elts.append(
+                ast.Dict(
+                    keys=[ast.Str("library"), ast.Str("instrumentation")],
+                    values=[ast.Str(target_lib), ast.Str(requirement)],
                 )
             )
 

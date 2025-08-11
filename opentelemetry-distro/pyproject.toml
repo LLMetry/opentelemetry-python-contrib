@@ -28,7 +28,7 @@ classifiers = [
 ]
 dependencies = [
   "opentelemetry-api ~= 1.12",
-  "tapm-instrumentation == 0.55rc1",
+  "tapm-instrumentation == 0.55rc4",
   "opentelemetry-sdk ~= 1.13",
 ]
 

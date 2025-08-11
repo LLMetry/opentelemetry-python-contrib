@@ -55,7 +55,10 @@ def run() -> None:
     seen_arguments = set()  # 跟踪已添加的参数以避免重复
 
     # 加载两个 entry point 组以保持兼容性
-    for group_name in ["opentelemetry_environment_variables", "tapm_environment_variables"]:
+    for group_name in [
+        "opentelemetry_environment_variables",
+        "tapm_environment_variables",
+    ]:
         for entry_point in entry_points(group=group_name):
             environment_variable_module = entry_point.load()
 
@@ -69,7 +72,9 @@ def run() -> None:
                             f"--{argument}",
                             required=False,
                         )
-                        argument_otel_environment_variable[argument] = attribute
+                        argument_otel_environment_variable[argument] = (
+                            attribute
+                        )
                         seen_arguments.add(argument)
 
     parser.add_argument(
