@@ -184,3 +184,11 @@ def run(
         action_requirements: _run_requirements,
     }[args.action]
     cmd(default_instrumentations, libraries)
+
+
+# Enable bootstrap module to run via `python -m` command for environments
+# where `pip install -t` is used (e.g., serverless functions).
+# Usage in serverless environments:
+#  PYTHONPATH=. python -m opentelemetry.instrumentation.bootstrap -a install
+if __name__ == "__main__":
+    run()

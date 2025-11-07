@@ -20,19 +20,19 @@
 libraries = [
     {
         "library": "langchain>=0.0.346",
-        "instrumentation": "tapm-instrumentation-langchain==0.43.1a2",
+        "instrumentation": "tapm-instrumentation-langchain==0.43.2",
     },
     {
         "library": "langchain-core>0.1.0",
-        "instrumentation": "tapm-instrumentation-langchain==0.43.1a2",
+        "instrumentation": "tapm-instrumentation-langchain==0.43.2",
     },
     {
         "library": "ollama>=0.2.0,<1",
-        "instrumentation": "tapm-instrumentation-ollama==0.43.1a2",
+        "instrumentation": "tapm-instrumentation-ollama==0.43.2",
     },
     {
         "library": "openai >= 0.27.0",
-        "instrumentation": "tapm-instrumentation-openai==0.43.1a3",
+        "instrumentation": "tapm-instrumentation-openai==0.43.2",
     },
     {
         "library": "google-cloud-aiplatform >= 1.64",
@@ -228,13 +228,13 @@ libraries = [
     },
     {
         "library": "llama-index >= 0.7.0",
-        "instrumentation": "tapm-instrumentation-llamaindex==0.43.1a2",
+        "instrumentation": "tapm-instrumentation-llamaindex==0.43.2",
     },
     {
         "library": "llama-index-core >= 0.7.0",
-        "instrumentation": "tapm-instrumentation-llamaindex==0.43.1a2",
+        "instrumentation": "tapm-instrumentation-llamaindex==0.43.2",
     },
-r
+]
 
 default_instrumentations = [
     "opentelemetry-instrumentation-asyncio==0.55b1",

@@ -44,4 +44,5 @@ class OpenTelemetryDistro(BaseDistro):
         os.environ.setdefault(OTEL_METRICS_EXPORTER, "otlp")
         os.environ.setdefault(OTEL_LOGS_EXPORTER, "otlp")
         os.environ.setdefault(OTEL_EXPORTER_OTLP_PROTOCOL, "grpc")
-        os.environ.setdefault(OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE, "DELTA")
+        # Force set metrics temporality preference to `DELTA` with highest priority
+        os.environ[OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE] = "DELTA"
